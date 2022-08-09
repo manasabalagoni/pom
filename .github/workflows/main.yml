@@ -19,13 +19,13 @@ jobs:
     - name: Checkout submodule repo
       uses: actions/checkout@v2
       with:
-        repository: manasabalagoni/Tomcat
-        path: "https://github.com/manasabalagoni/Tomcat.git"
+        repository: manasabalagoni/javamaven
+        path: "https://github.com/manasabalagoni/javamaven.git"
         token: ${{ secrets.PAT_for_Private_Submodule }}
     - name: Check Submodule Name
       uses: jtmullen/submodule-branch-check-action@v1
       with:
-        path: "Tomcat"
+        path: "javamaven"
         branch: "main"
         first_parent: true
         fetch_depth: "50"
