@@ -16,8 +16,8 @@ jobs:
       - name: clone submodule
         uses: actions/checkout@v2
         with:
-          repository: manasabalagoni/Tomcat
-          path: Tomcat
+          repository: manasabalagoni/javamaven
+          path: javamaven
           ssh-key: ${{ secrets.SUBMODULE_SSH_KEY }}
           persist-credentials: true
 
