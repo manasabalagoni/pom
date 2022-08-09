@@ -21,7 +21,4 @@ jobs:
           ssh-key: ${{ secrets.SUBMODULE_SSH_KEY }}
           persist-credentials: true
 
-      - name: checkout submodule
-        run: |
-          git submodule init
-          git submodule update
+  
