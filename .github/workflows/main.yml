@@ -13,21 +13,14 @@ jobs:
     name: Check Submodule
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout this repo
-      uses: actions/checkout@v2
-    ## Step only reqired for private submodules
-    - name: Checkout submodule repo
-      uses: actions/checkout@v2
-      with:
-        repository: manasabalagoni/javamaven
-        path: "https://github.com/manasabalagoni/javamaven.git"
-        token: ${{ secrets.PAT_for_Private_Submodule }}
-    - name: Check Submodule Name
-      uses: jtmullen/submodule-branch-check-action@v1
-      with:
-        path: "javamaven"
-        branch: "main"
-        first_parent: true
-        fetch_depth: "50"
-        pass_if_unchanged: true
-        require_head: true
+      - name: clone main repository
+        uses: actions/checkout@v2
+
+      - name: clone submodule
+        uses: actions/checkout@v2
+        with:
+          repository: manasabalagoni/javamaven
+          path: javamven
+          ref: v2
+          ssh-key: ${{ secrets.SUBMODULE_SSH_KEY }}
+          persist-credentials: false
