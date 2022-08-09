@@ -1,0 +1,33 @@
+# This is a basic workflow to help you get started with Actions
+
+name: checking-submodule
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  check-submodules:
+    name: Check Submodule
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout this repo
+      uses: actions/checkout@v2
+    ## Step only reqired for private submodules
+    - name: Checkout submodule repo
+      uses: actions/checkout@v2
+      with:
+        repository: manasabalagoni/Tomcat
+        path: "https://github.com/manasabalagoni/Tomcat.git"
+        token: ${{ secrets.PAT_for_Private_Submodule }}
+    - name: Check Submodule Name
+      uses: jtmullen/submodule-branch-check-action@v1
+      with:
+        path: "Tomcat"
+        branch: "main"
+        first_parent: true
+        fetch_depth: "50"
+        pass_if_unchanged: true
+        require_head: true
