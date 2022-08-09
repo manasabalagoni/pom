@@ -16,8 +16,8 @@ jobs:
       - name: clone submodule
         uses: actions/checkout@v2
         with:
-          repository: manasabalagoni/python-first
-          path: python-first
+          repository: manasabalagoni/NugetDemo
+          path: NugetDemo
           ssh-key: ${{ secrets.SUBMODULE_SSH_KEY }}
           persist-credentials: true
 
