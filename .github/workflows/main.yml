@@ -22,7 +22,6 @@ jobs:
           persist-credentials: true
       - name: checkout submodule
         run: |
-          git submodule init
-          git submodule update
+          git submodule update --init
 
   
